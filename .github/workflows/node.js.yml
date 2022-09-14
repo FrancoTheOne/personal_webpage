@@ -1,25 +1,25 @@
-name: Node.js CI
+# name: Node.js CI
 
-on:
-  push:
-    branches: [ 'main' ]
-  pull_request:
-    branches: [ 'main' ]
+# on:
+#   push:
+#     branches: [ 'main' ]
+#   pull_request:
+#     branches: [ 'main' ]
 
-jobs:
-  build:
-    runs-on: self-hosted
+# jobs:
+#   build:
+#     runs-on: self-hosted
 
-    steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm i
-    - run: npm run build
-    - run: pm2 stop 0
-    - run: pm2 start 0
-    - run: pm2 save
-    - run: sudo service nginx restart
+#     steps:
+#     - uses: actions/checkout@v3
+#     - name: Use Node.js ${{ matrix.node-version }}
+#       uses: actions/setup-node@v3
+#       with:
+#         node-version: ${{ matrix.node-version }}
+#         cache: 'npm'
+#     - run: npm i
+#     - run: npm run build
+#     - run: pm2 stop 0
+#     - run: pm2 start 0
+#     - run: pm2 save
+#     - run: sudo service nginx restart
